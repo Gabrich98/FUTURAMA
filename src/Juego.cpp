@@ -29,7 +29,7 @@ Juego::Juego(sf::RenderWindow& window) : window(window),game(window), l(window)
         AST_V.push_back(new AST());
     }
       for (int i=0; i<3; i++) {
-        VIDA_V.push_back(new VIDA());
+        CAJA_C.push_back(new Caja());
     }
     fuente.loadFromFile("letra.ttf");
 
@@ -101,35 +101,29 @@ void Juego::loop()
         nave.var=false;
         //Setear los textos
 
-        v.setString("VIDAS: "+to_string(nave.mostrar_vidas()));
-        s.setString("SALUD");
+        v.setString("CAJAS: "+to_string(nave.mostrar_cajas()));
         //pun.setString("MEJOR PUNTAJE:");
         //pun1.setString(p.GetNombre()+"   "+to_string(p.GetPuntaje()));
 
         sf::Event event;
         while (window.pollEvent(event))
         {
-            // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
 
             nave.procesar_evento(event);
 
-
-
-            /**/
-
         }
 
-        for(ivid i=VIDA_V.begin(); i!=VIDA_V.end();i++)
+        for(icaj i=CAJA_C.begin(); i!=CAJA_C.end();i++)
         {
             if (!(*i)->vivir())
             {
                 delete *i;
-                i = VIDA_V.erase(i);
+                i = CAJA_C.erase(i);
                 for(int i=0;i<1;i++)
                 {
-                    VIDA_V.push_back(new VIDA());
+                   CAJA_C.push_back(new Caja());
                 }
             }
         }
@@ -168,7 +162,7 @@ void Juego::loop()
         {
             (*i)->accion(*this);
         }
-        for(ivid i=VIDA_V.begin(); i!=VIDA_V.end();i++)
+        for(icaj i=CAJA_C.begin(); i!=CAJA_C.end();i++)
         {
             (*i)->accion(*this);
         }
@@ -186,7 +180,7 @@ void Juego::loop()
         window.draw(bg);
 
         sf::Texture sal;
-        switch(nave.mostrar_salud())
+        switch(nave.mostrar_vidas())
         {
             case 100:
                 sal.loadFromFile("vel100.png");
@@ -221,7 +215,7 @@ void Juego::loop()
             (*i)->pintar(window);
         }
 
-        for(ivid i=VIDA_V.begin(); i!=VIDA_V.end();i++){
+        for(icaj i=CAJA_C.begin(); i!=CAJA_C.end();i++){
             (*i)->pintar(window);
         }
 
@@ -281,9 +275,9 @@ AST* Juego::colision_con_nave(sf::FloatRect n)
     return NULL;
 }
 
-VIDA* Juego::salva_nave(sf::FloatRect n)
+Caja* Juego::ingresa_nave(sf::FloatRect n)
 {
-   for(ivid i=VIDA_V.begin();i!=VIDA_V.end();i++)
+   for(icaj i=CAJA_C.begin();i!=CAJA_C.end();i++)
     {
         if((*i)->devolver_cuadrado().intersects(n))
         {

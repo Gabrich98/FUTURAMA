@@ -23,10 +23,8 @@ class Nave : public Entidad
         void pintar(sf::RenderWindow&);
         void descontar_vidas();
         int mostrar_vidas();
-        void sumar_vidas();
-        void descontar_salud();
-        int mostrar_salud();
-        void sumar_salud();
+        void sumar_cajas();
+        int mostrar_cajas();
         void actualiza_puntaje();
         int GetPunt(){return puntaje;};
         void Reset_vidas();
@@ -37,7 +35,7 @@ class Nave : public Entidad
         int contador;
         long puntaje;
         int vidas;
-        int salud;
+        int cajas;
 
     private:
         bool subir;

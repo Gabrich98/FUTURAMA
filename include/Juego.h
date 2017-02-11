@@ -8,7 +8,7 @@
 #include "Leer.h"
 #include "Game_Over.h"
 #include "menu.h"
-#include "VIDA.h"
+#include "Caja.h"
 #include <vector>
 #include <list>
 #include "Entidad.h"
@@ -27,7 +27,7 @@ class Juego
         bool vivo;
         AST* colision_con_asteroide(sf::FloatRect);
         AST* colision_con_nave(sf::FloatRect);
-        VIDA* salva_nave(sf::FloatRect);
+        Caja* ingresa_nave(sf::FloatRect);
 
     protected:
         int nivel;
@@ -44,10 +44,10 @@ class Juego
         sf::Font fuente;
         list<Bala*> balas;
         list<AST*> AST_V;
-        list<VIDA*> VIDA_V;
+        list<Caja*> CAJA_C;
         typedef list<Bala*>::iterator ibalas;
         typedef list <AST*>::iterator iast;
-        typedef list <VIDA*>::iterator ivid;
+        typedef list <Caja*>::iterator icaj;
 };
 
 #endif // JUEGO_H

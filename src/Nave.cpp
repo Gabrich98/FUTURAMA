@@ -8,7 +8,7 @@
 Nave::Nave() : Entidad("nave_mov.png","propulsor.psd","","", 250, 200)
 {
     vidas=3;
-    salud=100;
+    cajas=0;
     disparando = false;
     contador = 10;
     actual = NoMov;
@@ -43,24 +43,15 @@ int Nave::mostrar_vidas(){
 
         return vidas;
 }
-void Nave::descontar_salud()
+
+
+
+void Nave::sumar_cajas()
 {
-    salud=salud-20;
+    cajas++;
 }
 
-void Nave::sumar_salud()
-{
-    salud=salud+20;
-}
-void Nave::sumar_vidas()
-{
-    vidas++;
-}
 
-int Nave::mostrar_salud()
-{
-    return salud;
-}
 
 void Nave::Reset_vidas()
 {
@@ -68,6 +59,10 @@ void Nave::Reset_vidas()
     puntaje=0;
 
 
+}
+
+int Nave::mostrar_cajas(){
+    return cajas;
 }
 
 
@@ -84,10 +79,11 @@ void Nave::procesar_evento(sf::Event event)
             break;
         case sf::Keyboard::Right:
             actual = Derecha;
+            subir=true;
             break;
         case sf::Keyboard::Up:
             actual = Arriba;
-            subir=true;
+
             break;
         case sf::Keyboard::Down:
             actual = Abajo;
@@ -105,14 +101,15 @@ void Nave::procesar_evento(sf::Event event)
             if(subir==true)subir=false;
             break;
         case sf::Keyboard::Right:
-            if (actual == Derecha) actual = NoMov;
+            if (actual == Derecha){
+               actual = NoMov;
+               subir=false;
+            }
             if(subir==true)subir=false;
             break;
         case sf::Keyboard::Up:
-            if (actual == Arriba){
-                    actual = NoMov;
-                    subir=false;
-            }
+           if (actual == Arriba) actual = NoMov;
+            if(subir==true)subir=false;
             break;
         case sf::Keyboard::Down:
             if (actual == Abajo) actual = NoMov;
@@ -152,27 +149,16 @@ void Nave::accion(Juego& j) {
         if(a != NULL){
             a->matar();
             matar();
-            descontar_salud();
+            descontar_vidas();
             var=true;
-            if (salud==0){
-                descontar_vidas();
-                salud=100;
-
-            }
         }
 
-        VIDA* v=j.salva_nave(sprite.getGlobalBounds());
-        if(v != NULL)
+        Caja* c=j.ingresa_nave(sprite.getGlobalBounds());
+        if(c != NULL)
         {
-            v->matar();
+            c->matar();
             //var=true;
-
-            if (salud==100)
-            {
-                sumar_vidas();
-                salud=0;
-            }
-            sumar_salud();
+            sumar_cajas();
         }
 
         sprite.setScale(0.6,0.5);
@@ -182,8 +168,8 @@ void Nave::accion(Juego& j) {
         punt.setColor(sf::Color::Yellow);
         punt.setPosition(sprite.getPosition().x+70,sprite.getPosition().y+50);
         punt.setString(to_string(puntaje));
-
-        sprite1.setPosition(sprite.getPosition().x+35,sprite.getPosition().y+170);
+        sprite1.setRotation(90);
+        sprite1.setPosition(sprite.getPosition().x-170,sprite.getPosition().y+35);
 
 
 

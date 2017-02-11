@@ -1,7 +1,7 @@
 #include "AST.h"
 
 
-AST::AST(/*int tam*/) : Entidad("a_1.png","","","", rand()%1366, rand()%50)
+AST::AST(/*int tam*/) : Entidad("a_1.png","","","", 1366, rand()%765)
 {
     sprite.setRotation(180);
     sprite.setScale(0.6,0.6);
@@ -21,7 +21,7 @@ sf::FloatRect AST::devolver_cuadrado()
 void AST::accion(Juego&)
 {
     sprite.move(-vel,0);
-    if (sprite.getPosition().y>768) sprite.setPosition(rand()%1366, rand()%100);
+    if (sprite.getPosition().x<-10) sprite.setPosition(1366, rand()%765);
 }
 
 void AST::pintar(sf::RenderWindow& w)
