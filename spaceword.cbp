@@ -40,20 +40,25 @@
 		</Compiler>
 		<Unit filename="include/AST.h" />
 		<Unit filename="include/Bala.h" />
+		<Unit filename="include/Caja.h" />
 		<Unit filename="include/Entidad.h" />
 		<Unit filename="include/Game_Over.h" />
 		<Unit filename="include/Juego.h" />
 		<Unit filename="include/Leer.h" />
+		<Unit filename="include/ListadoPuntajes.h" />
+		<Unit filename="include/MPunt.h" />
 		<Unit filename="include/Nave.h" />
 		<Unit filename="include/Puntaje.h" />
-		<Unit filename="include/VIDA.h" />
 		<Unit filename="include/menu.h" />
 		<Unit filename="src/AST.cpp" />
 		<Unit filename="src/Bala.cpp" />
+		<Unit filename="src/Caja.cpp" />
 		<Unit filename="src/Entidad.cpp" />
 		<Unit filename="src/Game_Over.cpp" />
 		<Unit filename="src/Juego.cpp" />
 		<Unit filename="src/Leer.cpp" />
+		<Unit filename="src/ListadoPuntajes.cpp" />
+		<Unit filename="src/MPunt.cpp" />
 		<Unit filename="src/Nave.cpp" />
 		<Unit filename="src/Puntaje.cpp" />
 		<Unit filename="src/VIDA.cpp" />

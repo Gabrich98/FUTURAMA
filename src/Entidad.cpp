@@ -1,6 +1,6 @@
 #include "Entidad.h"
 
-Entidad::Entidad(string obj1, string obj2,string obj3,string obj4, int x, int y)
+Entidad::Entidad(string obj1, string obj2, int x, int y)
 {
     esta_vivo=true;
 
@@ -12,14 +12,6 @@ Entidad::Entidad(string obj1, string obj2,string obj3,string obj4, int x, int y)
     sprite1.setTexture(o2);
     sprite1.setPosition(x,y);
 
-
-    o3.loadFromFile(obj3);
-    sprite2.setTexture(o3);
-    sprite2.setPosition(x,y);
-
-    o4.loadFromFile(obj4);
-    sprite3.setTexture(o4);
-    sprite3.setPosition(x,y);
 }
 
 bool Entidad::vivir(){

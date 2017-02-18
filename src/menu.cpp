@@ -1,3 +1,4 @@
+
 #include "menu.h"
 
 
@@ -10,20 +11,21 @@ menu::menu(sf::RenderWindow& w):w(w)
 
 void menu::loop()
 {
+
     t1.setFont(f);
     t1.setPosition(20,700);
     t1.setCharacterSize(60);
-    t1.setString("START [1]");
+    t1.setString("JUGAR [1]");
 
     t2.setFont(f);
-    t2.setPosition(500,700);
+    t2.setPosition(470,700);
     t2.setCharacterSize(60);
-    t2.setString("SCORE [2]");
+    t2.setString("PUNTAJES [2]");
 
     t3.setFont(f);
-    t3.setPosition(1000,700);
+    t3.setPosition(1050,700);
     t3.setCharacterSize(60);
-    t3.setString("EXIT [3]");
+    t3.setString("SALIR[3]");
 
     t.loadFromFile("menu.jpg");
 
@@ -51,7 +53,8 @@ void menu::loop()
 
                 if(event.key.code == sf::Keyboard::Numpad2)
                 {
-                    return w.close();
+                    MPunt mp(w);
+                    mp.loop();
                 }
 
                 if(event.key.code == sf::Keyboard::Numpad3)

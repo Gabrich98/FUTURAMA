@@ -4,11 +4,14 @@
 #include "Leer.h"
 #include "Puntaje.h"
 #include "Nave.h"
+#include "ListadoPuntajes.h"
+
 
 
 using namespace std;
 class menu;
 class Juego;
+class ListadoPuntajes;
 class Game_Over
 {
     public:
@@ -20,8 +23,9 @@ class Game_Over
 
     private:
         Nave nave;
-        Puntaje p;
-        Leer l;
+        //Puntaje p;
+        Leer lee;
+        ListadoPuntajes lista;
         bool ganar;
         sf::RenderWindow& w;
         sf::Texture fondo;

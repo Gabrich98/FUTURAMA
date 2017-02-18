@@ -1,30 +1,29 @@
-#ifndef MENU_H
-#define MENU_H
+#ifndef MPUNT_H
+#define MPUNT_H
 
 #include "Juego.h"
 #include "Leer.h"
 #include "Puntaje.h"
-#include "MPunt.h"
-
-#include <SFML/Audio.hpp>
+#include "menu.h"
 
 
-class menu
+class MPunt
 {
     public:
-        menu(sf::RenderWindow& w);
+        MPunt(sf::RenderWindow& w);
         void loop();
+
     protected:
 
     private:
-
+        Puntaje p;
+        Leer l;
         sf::RenderWindow& w;
         sf::Texture t;
-        sf::Text t3;
-        sf::Text t2;
         sf::Text t1;
         sf::Font f;
+        sf::Text punt;
+        sf::Text punt1;
 };
 
-
-#endif // MENU_H
+#endif // MPUNT_H

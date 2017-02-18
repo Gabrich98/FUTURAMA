@@ -6,7 +6,7 @@
 
 Puntaje::Puntaje()
 {
-    //ctor
+
 }
 
 Puntaje::Puntaje(std::istream& l)

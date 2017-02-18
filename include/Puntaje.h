@@ -17,10 +17,10 @@ class Puntaje
         int GetPuntaje();
 
     protected:
-
-    private:
-        std::string nombre;
+         std::string nombre;
         int punta;
+    private:
+
 };
 
 #endif // PUNTAJE_H

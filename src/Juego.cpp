@@ -5,20 +5,23 @@
 #include "archivo.h"
 #include "Leer.h"
 #include "Game_Over.h"
+#include "Caja.h"
+
 #include <Puntaje.h>
+
 #include <string>
 #include <sstream>
 #include <fstream>
 #include <iostream>
 #include <vector>
-#include <string>
+
 
 
 
 using namespace std;
 
 
-Juego::Juego(sf::RenderWindow& window) : window(window),game(window), l(window)
+Juego::Juego(sf::RenderWindow& window) : window(window),game(window), lee(window)
 
 {
     nivel=1;
@@ -28,10 +31,10 @@ Juego::Juego(sf::RenderWindow& window) : window(window),game(window), l(window)
     for (int i=0; i<10; i++) {
         AST_V.push_back(new AST());
     }
-      for (int i=0; i<3; i++) {
-        VIDA_V.push_back(new VIDA());
+   for (int i=0; i<3; i++) {
+        CAJA_C.push_back(new Caja());
     }
-    fuente.loadFromFile("letra.ttf");
+    fuente.loadFromFile("fr-bold.ttf");
 
     //Constructor
 
@@ -59,6 +62,13 @@ void Juego::disparar(sf::Vector2f v)
 
 void Juego::loop()
 {
+    ifstream fentrada("a_punt.dat", ios::in | ios::binary);
+
+    if(fentrada.is_open())
+    {
+        p.leer(fentrada);
+    }
+
     sf::Texture bg_t;
     bg_t.loadFromFile("fondo.jpg");
 
@@ -71,7 +81,7 @@ void Juego::loop()
     v.setColor(sf::Color::Green);
     v.setFont(fuente);
     v.setCharacterSize(30);
-    v.setPosition(32,40);;
+    v.setPosition(20,20);;
 
     sf::Text s;
     s.setColor(sf::Color::Green);
@@ -83,53 +93,40 @@ void Juego::loop()
     pun.setColor(sf::Color::Red);
     pun.setFont(fuente);
     pun.setCharacterSize(30);
-    pun.setPosition(600,0);
+    pun.setPosition(50,730);
 
     sf::Text pun1;
     pun1.setFont(fuente);
     pun1.setCharacterSize(30);
-    pun1.setPosition(630,40);
+    pun1.setPosition(10,690);
+    pun1.setColor(sf::Color::Red);
+    pun1.setString("MEJOR PUNTAJE");
 
-    ifstream fentrada("a_punt.dat", ios::in | ios::binary);
-
-    if(fentrada.is_open())
-    {
-        p.leer(fentrada);
-    }
     while (window.isOpen())
     {
         nave.var=false;
-        //Setear los textos
 
-        v.setString("VIDAS: "+to_string(nave.mostrar_vidas()));
-        s.setString("SALUD");
-        //pun.setString("MEJOR PUNTAJE:");
-        //pun1.setString(p.GetNombre()+"   "+to_string(p.GetPuntaje()));
-
+        v.setString("CAJAS: "+to_string(nave.mostrar_cajas()));
+        pun.setString(p.GetNombre()+"   "+to_string(p.GetPuntaje()));
         sf::Event event;
         while (window.pollEvent(event))
         {
-            // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
 
             nave.procesar_evento(event);
 
-
-
-            /**/
-
         }
 
-        for(ivid i=VIDA_V.begin(); i!=VIDA_V.end();i++)
+        for(icaj i=CAJA_C.begin(); i!=CAJA_C.end();i++)
         {
             if (!(*i)->vivir())
             {
                 delete *i;
-                i = VIDA_V.erase(i);
+                i = CAJA_C.erase(i);
                 for(int i=0;i<1;i++)
                 {
-                    VIDA_V.push_back(new VIDA());
+                    CAJA_C.push_back(new Caja());
                 }
             }
         }
@@ -168,48 +165,59 @@ void Juego::loop()
         {
             (*i)->accion(*this);
         }
-        for(ivid i=VIDA_V.begin(); i!=VIDA_V.end();i++)
+        for(icaj i=CAJA_C.begin(); i!=CAJA_C.end();i++)
         {
             (*i)->accion(*this);
         }
 
-        if((nave.GetPunt()<=puntaje+5)&&(nave.GetPunt()>=puntaje-1))
-        {
-            if(nivel==2||nivel==3)contador=nivel-1;
-            if(nivel==4||nivel==5)contador=nivel/2-1;
-            if(nivel==6||nivel==7)contador=nivel/3-2;
-            nivel++;
-            puntaje=puntaje+4000;
-        }
 
         window.clear(sf::Color::Black);
         window.draw(bg);
 
-        sf::Texture sal;
-        switch(nave.mostrar_salud())
+
+        sf::Texture b;
+        sf::Texture l;
+        sf::Texture f;
+
+        b.loadFromFile("bender.png");
+        l.loadFromFile("leela.png");
+        f.loadFromFile("fry.png");
+
+        sf::Sprite ben;
+        sf::Sprite lee;
+        sf::Sprite fry;
+
+        ben.setTexture(b);
+        ben.setPosition(1200,600);
+        ben.setScale(0.6,0.6);
+
+        lee.setTexture(l);
+        lee.setPosition(1050,600);
+        lee.setScale(0.52,0.52);
+
+
+        fry.setTexture(f);
+        fry.setPosition(900,580);
+        fry.setScale(0.5,0.5);
+
+
+        switch(nave.mostrar_vidas())
         {
-            case 100:
-                sal.loadFromFile("vel100.png");
+            case 3:
+               window.draw(ben);
+               window.draw(lee);
+               window.draw(fry);
+
                 break;
-            case 80:
-                sal.loadFromFile("vel75.png");
+            case 2:
+                window.draw(ben);
+               window.draw(lee);
                 break;
-            case 60:
-                sal.loadFromFile("vel50.png");
-                break;
-            case 40:
-                sal.loadFromFile("vel25.png");
-                break;
-            case 20:
-                sal.loadFromFile("vel0.png");
+            case 1:
+                window.draw(ben);
                 break;
         }
 
-        sf::Sprite i_s;
-        i_s.setTexture(sal);
-        i_s.setPosition(1120,60);
-        i_s.setScale(0.5,0.5);
-        window.draw(i_s);
 
         nave.pintar(window);
 
@@ -221,17 +229,16 @@ void Juego::loop()
             (*i)->pintar(window);
         }
 
-        for(ivid i=VIDA_V.begin(); i!=VIDA_V.end();i++){
+        for(icaj i=CAJA_C.begin(); i!=CAJA_C.end();i++){
             (*i)->pintar(window);
         }
 
-
         if(nave.mostrar_vidas()==0){
-            if(nave.GetPunt()>p.GetPuntaje()){
-                return game.game_o(true,nave.GetPunt());
+            //if(nave.mostrar_cajas()>p.GetPuntaje()){
+                return game.game_o(true,nave.mostrar_cajas());
 
-            }else{
-                return game.game_o(false,nave.GetPunt());
+            //}else{
+               // return game.game_o(false,nave.mostrar_cajas());
             }
 
 
@@ -241,14 +248,11 @@ void Juego::loop()
             window.display();
 
         }
-        nave.actualiza_puntaje();
-
 
         window.draw(v);
         window.draw(s);
         window.draw(pun);
         window.draw(pun1);
-
         window.display();
 
     }
@@ -281,9 +285,9 @@ AST* Juego::colision_con_nave(sf::FloatRect n)
     return NULL;
 }
 
-VIDA* Juego::salva_nave(sf::FloatRect n)
+Caja* Juego::ingresa_nave(sf::FloatRect n)
 {
-   for(ivid i=VIDA_V.begin();i!=VIDA_V.end();i++)
+   for(icaj i=CAJA_C.begin();i!=CAJA_C.end();i++)
     {
         if((*i)->devolver_cuadrado().intersects(n))
         {
