@@ -1,4 +1,5 @@
 #include "Caja.h"
+<<<<<<< HEAD
 Caja::Caja(/*int tam*/) : Entidad("caja.png","", 1366, rand()%765)
 {
 
@@ -7,6 +8,17 @@ Caja::Caja(/*int tam*/) : Entidad("caja.png","", 1366, rand()%765)
     //Constructor
 }
 
+=======
+
+Caja::Caja(/*int tam*/) : Entidad("caja.png","","","", 1366, rand()%765)
+{
+    sprite.setScale(1,1);
+    vel=3 + rand()%4;
+    //Constructor
+}
+
+
+>>>>>>> origin/master
 void Caja::procesar_evento(sf::Event)
 {
 }
@@ -18,7 +30,11 @@ sf::FloatRect Caja::devolver_cuadrado()
 
 void Caja::accion(Juego&)
 {
+<<<<<<< HEAD
     sprite.move(-vel,0);
+=======
+    sprite.move(0,vel);
+>>>>>>> origin/master
     if (sprite.getPosition().x<-10) sprite.setPosition(1366, rand()%765);
 }
 

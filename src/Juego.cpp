@@ -31,7 +31,11 @@ Juego::Juego(sf::RenderWindow& window) : window(window),game(window), lee(window
     for (int i=0; i<10; i++) {
         AST_V.push_back(new AST());
     }
+<<<<<<< HEAD
    for (int i=0; i<3; i++) {
+=======
+      for (int i=0; i<3; i++) {
+>>>>>>> origin/master
         CAJA_C.push_back(new Caja());
     }
     fuente.loadFromFile("fr-bold.ttf");
@@ -105,6 +109,14 @@ void Juego::loop()
     while (window.isOpen())
     {
         nave.var=false;
+<<<<<<< HEAD
+=======
+        //Setear los textos
+
+        v.setString("CAJAS: "+to_string(nave.mostrar_cajas()));
+        //pun.setString("MEJOR PUNTAJE:");
+        //pun1.setString(p.GetNombre()+"   "+to_string(p.GetPuntaje()));
+>>>>>>> origin/master
 
         v.setString("CAJAS: "+to_string(nave.mostrar_cajas()));
         pun.setString(p.GetNombre()+"   "+to_string(p.GetPuntaje()));
@@ -126,7 +138,11 @@ void Juego::loop()
                 i = CAJA_C.erase(i);
                 for(int i=0;i<1;i++)
                 {
+<<<<<<< HEAD
                     CAJA_C.push_back(new Caja());
+=======
+                   CAJA_C.push_back(new Caja());
+>>>>>>> origin/master
                 }
             }
         }
@@ -174,6 +190,7 @@ void Juego::loop()
         window.clear(sf::Color::Black);
         window.draw(bg);
 
+<<<<<<< HEAD
 
         sf::Texture b;
         sf::Texture l;
@@ -201,6 +218,9 @@ void Juego::loop()
         fry.setScale(0.5,0.5);
 
 
+=======
+        sf::Texture sal;
+>>>>>>> origin/master
         switch(nave.mostrar_vidas())
         {
             case 3:

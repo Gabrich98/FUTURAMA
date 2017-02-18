@@ -25,6 +25,11 @@ class Nave : public Entidad
         int mostrar_vidas();
         void sumar_cajas();
         int mostrar_cajas();
+<<<<<<< HEAD
+=======
+        void actualiza_puntaje();
+        int GetPunt(){return puntaje;};
+>>>>>>> origin/master
         void Reset_vidas();
         bool var;
 

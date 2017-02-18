@@ -56,6 +56,10 @@ int Nave::mostrar_cajas(){
     return cajas;
 }
 
+int Nave::mostrar_cajas(){
+    return cajas;
+}
+
 
 
 
@@ -154,7 +158,15 @@ void Nave::accion(Juego& j) {
 
         sprite.setScale(0.6,0.5);
 
+<<<<<<< HEAD
 
+=======
+        punt.setCharacterSize(25);
+        punt.setFont(fuente);
+        punt.setColor(sf::Color::Yellow);
+        punt.setPosition(sprite.getPosition().x+70,sprite.getPosition().y+50);
+        punt.setString(to_string(puntaje));
+>>>>>>> origin/master
         sprite1.setRotation(90);
         sprite1.setPosition(sprite.getPosition().x-170,sprite.getPosition().y+35);
 

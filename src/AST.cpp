@@ -1,7 +1,11 @@
 #include "AST.h"
 
 
+<<<<<<< HEAD
 AST::AST(/*int tam*/) : Entidad("a_1.png","", 1366, rand()%765)
+=======
+AST::AST(/*int tam*/) : Entidad("a_1.png","","","", 1366, rand()%765)
+>>>>>>> origin/master
 {
     sprite.setRotation(180);
     sprite.setScale(0.6,0.6);

@@ -9,7 +9,10 @@
 #include "Game_Over.h"
 #include "menu.h"
 #include "Caja.h"
+<<<<<<< HEAD
 #include <ListadoPuntajes.h>
+=======
+>>>>>>> origin/master
 #include <vector>
 #include <list>
 #include "Entidad.h"
