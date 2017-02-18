@@ -2,7 +2,11 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 AST::AST(/*int tam*/) : Entidad("a_1.png","", 1366, rand()%765)
+=======
+AST::AST(/*int tam*/) : Entidad("a_1.png","","","", 1366, rand()%765)
+>>>>>>> origin/master
 =======
 AST::AST(/*int tam*/) : Entidad("a_1.png","","","", 1366, rand()%765)
 >>>>>>> origin/master

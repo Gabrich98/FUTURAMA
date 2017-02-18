@@ -35,6 +35,9 @@ Juego::Juego(sf::RenderWindow& window) : window(window),game(window), lee(window
    for (int i=0; i<3; i++) {
 =======
       for (int i=0; i<3; i++) {
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
         CAJA_C.push_back(new Caja());
     }
@@ -139,7 +142,11 @@ void Juego::loop()
                 for(int i=0;i<1;i++)
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     CAJA_C.push_back(new Caja());
+=======
+                   CAJA_C.push_back(new Caja());
+>>>>>>> origin/master
 =======
                    CAJA_C.push_back(new Caja());
 >>>>>>> origin/master
@@ -220,6 +227,9 @@ void Juego::loop()
 
 =======
         sf::Texture sal;
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
         switch(nave.mostrar_vidas())
         {

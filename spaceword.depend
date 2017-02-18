@@ -1,6 +1,10 @@
 # depslib dependency file v1.0
 <<<<<<< HEAD
+<<<<<<< HEAD
 1487279959 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\juego.cpp
+=======
+1486827860 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\juego.cpp
+>>>>>>> origin/master
 =======
 1486827860 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\juego.cpp
 >>>>>>> origin/master
@@ -20,7 +24,11 @@
 	<vector>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 1487439003 c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\include\juego.h
+=======
+1486826742 c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\include\juego.h
+>>>>>>> origin/master
 =======
 1486826742 c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\include\juego.h
 >>>>>>> origin/master
@@ -34,7 +42,10 @@
 	"menu.h"
 	"Caja.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<ListadoPuntajes.h>
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 	<vector>
@@ -51,7 +62,11 @@
 	<SFML/Graphics.hpp>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 1487011517 c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\include\nave.h
+=======
+1486827031 c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\include\nave.h
+>>>>>>> origin/master
 =======
 1486827031 c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\include\nave.h
 >>>>>>> origin/master
@@ -65,7 +80,11 @@
 	"Entidad.h"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 1487276541 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\nave.cpp
+=======
+1486827594 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\nave.cpp
+>>>>>>> origin/master
 =======
 1486827594 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\nave.cpp
 >>>>>>> origin/master
@@ -76,7 +95,11 @@
 	<sstream>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 1487431317 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\ast.cpp
+=======
+1486827750 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\ast.cpp
+>>>>>>> origin/master
 =======
 1486827750 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\ast.cpp
 >>>>>>> origin/master
@@ -89,7 +112,11 @@
 	<Entidad.h>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 1487431317 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\bala.cpp
+=======
+1486825831 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\bala.cpp
+>>>>>>> origin/master
 =======
 1486825831 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\bala.cpp
 >>>>>>> origin/master
@@ -283,6 +310,7 @@
 	"Puntaje.h"
 	"menu.h"
 
+<<<<<<< HEAD
 1486999118 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\src\mpunt.cpp
 	<string>
 	<sstream>
@@ -298,6 +326,8 @@
 	<iostream>
 	<list>
 
+=======
+>>>>>>> origin/master
 1486651700 source:c:\users\gabriel\documents\facultad\juego poo\juego\spaceword\futurama\src\ast.cpp
 	"AST.h"
 

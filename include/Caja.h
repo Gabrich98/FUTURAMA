@@ -19,7 +19,11 @@ class Caja : public Entidad
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 #endif // Caja_H
+=======
+#endif // VIDA_H
+>>>>>>> origin/master
 =======
 #endif // VIDA_H
 >>>>>>> origin/master

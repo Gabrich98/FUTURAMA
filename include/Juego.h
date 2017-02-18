@@ -10,7 +10,10 @@
 #include "menu.h"
 #include "Caja.h"
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <ListadoPuntajes.h>
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 #include <vector>

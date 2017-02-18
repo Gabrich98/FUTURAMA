@@ -32,11 +32,17 @@ void Bala::accion(Juego& j)
 sprite.move(5,0);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/master
     sprite.move(5,0);
     sprite1.move(5,0);
     sprite2.move(5,0);
     sprite3.move(5,0);
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 }
 
